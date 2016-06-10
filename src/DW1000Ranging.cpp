@@ -102,6 +102,15 @@ void DW1000RangingClass::configureNetwork(unsigned int deviceAddress, unsigned i
 	// general configuration
 	DW1000.newConfiguration();
 	DW1000.setDefaults();
+	// for frame filtering - needed for this class
+	DW1000.setFrameFilter(true);
+	// for data frame (poll, poll_ack, range, range report, range failed) filtering
+	DW1000.setFrameFilterAllowData(true);
+	// for reserved (blink) frame filtering
+	DW1000.setFrameFilterAllowReserved(true);
+	//setFrameFilterAllowMAC(true);
+	//setFrameFilterAllowBeacon(true);
+	//setFrameFilterAllowAcknowledgement(true);
 	DW1000.setDeviceAddress(deviceAddress);
 	DW1000.setNetworkId(networkId);
 	DW1000.enableMode(mode);
