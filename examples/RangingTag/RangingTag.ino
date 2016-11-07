@@ -33,7 +33,7 @@
 // connection pins
 const uint8_t PIN_RST = 9; // reset pin
 const uint8_t PIN_IRQ = 2; // irq pin
-const uint8_t PIN_SS = SS; // spi select pin
+const uint8_t PIN_SS = 10; // spi select pin
 
 // messages used in the ranging protocol
 // TODO replace by enum

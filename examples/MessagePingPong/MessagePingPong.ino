@@ -34,7 +34,7 @@
 // connection pins
 constexpr uint8_t PIN_RST = 9; // reset pin
 constexpr uint8_t PIN_IRQ = 2; // irq pin
-constexpr uint8_t PIN_SS = SS; // spi select pin
+constexpr uint8_t PIN_SS = 10; // spi select pin
 
 // toggle state
 enum class TransmissionState : uint8_t {
