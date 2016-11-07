@@ -79,13 +79,13 @@ void setup() {
     // DEBUG chip info and registers pretty printed
     char msg[128];
     DW1000.getPrintableDeviceIdentifier(msg);
-    Serial.print("Device ID: "); Serial.println(msg);
+    Serial.print(F("Device ID: ")); Serial.println(msg);
     DW1000.getPrintableExtendedUniqueIdentifier(msg);
-    Serial.print("Unique ID: "); Serial.println(msg);
+    Serial.print(F("Unique ID: ")); Serial.println(msg);
     DW1000.getPrintableNetworkIdAndShortAddress(msg);
-    Serial.print("Network ID & Device Address: "); Serial.println(msg);
+    Serial.print(F("Network ID & Device Address: ")); Serial.println(msg);
     DW1000.getPrintableDeviceMode(msg);
-    Serial.print("Device mode: "); Serial.println(msg);
+    Serial.print(F("Device mode: ")); Serial.println(msg);
     // attach callback for (successfully) sent and received messages
     DW1000.attachSentHandler(handleSent);
     DW1000.attachReceivedHandler(handleReceived);
@@ -132,7 +132,7 @@ void transmitRange() {
     // delay sending the message and remember expected future sent timestamp
     DW1000Time deltaTime = DW1000Time(replyDelayTimeUS, DW1000Time::MICROSECONDS);
     timeRangeSent = DW1000.setDelay(deltaTime);
-    timePollSent.getTimestamp(data + 1);
+    timePollSent.getTimestamp(data + 1); // timesamp has 5 byte
     timePollAckReceived.getTimestamp(data + 6);
     timeRangeSent.getTimestamp(data + 11);
     DW1000.setData(data, LEN_DATA);

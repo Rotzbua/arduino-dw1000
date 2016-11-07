@@ -92,13 +92,13 @@ void setup() {
     // DEBUG chip info and registers pretty printed
     char msg[128];
     DW1000.getPrintableDeviceIdentifier(msg);
-    Serial.print("Device ID: "); Serial.println(msg);
+    Serial.print(F("Device ID: ")); Serial.println(msg);
     DW1000.getPrintableExtendedUniqueIdentifier(msg);
-    Serial.print("Unique ID: "); Serial.println(msg);
+    Serial.print(F("Unique ID: ")); Serial.println(msg);
     DW1000.getPrintableNetworkIdAndShortAddress(msg);
-    Serial.print("Network ID & Device Address: "); Serial.println(msg);
+    Serial.print(F("Network ID & Device Address: ")); Serial.println(msg);
     DW1000.getPrintableDeviceMode(msg);
-    Serial.print("Device mode: "); Serial.println(msg);
+    Serial.print(F("Device mode: ")); Serial.println(msg);
     // attach callback for (successfully) sent and received messages
     DW1000.attachSentHandler(handleSent);
     DW1000.attachReceivedHandler(handleReceived);
@@ -242,7 +242,9 @@ void loop() {
         else if (msgId == RANGE) {
             DW1000.getReceiveTimestamp(timeRangeReceived);
             expectedMsgId = POLL;
-            if (!protocolFailed) {
+            if (protocolFailed) {
+                transmitRangeFailed();
+            } else {
                 timePollSent.setTimestamp(data + 1);
                 timePollAckReceived.setTimestamp(data + 6);
                 timeRangeSent.setTimestamp(data + 11);
@@ -250,12 +252,12 @@ void loop() {
                 computeRangeAsymmetric(); // CHOSEN RANGING ALGORITHM
                 transmitRangeReport(timeComputedRange.getAsMicroSeconds());
                 float distance = timeComputedRange.getAsMeters();
-                Serial.print("Range: "); Serial.print(distance); Serial.print(" m");
-                Serial.print("\t RX power: "); Serial.print(DW1000.getReceivePower()); Serial.print(" dBm");
-                Serial.print("\t Sampling: "); Serial.print(samplingRate); Serial.println(" Hz");
-                //Serial.print("FP power is [dBm]: "); Serial.print(DW1000.getFirstPathPower());
-                //Serial.print("RX power is [dBm]: "); Serial.println(DW1000.getReceivePower());
-                //Serial.print("Receive quality: "); Serial.println(DW1000.getReceiveQuality());
+                Serial.print(F("Range: ")); Serial.print(distance); Serial.print(F(" m"));
+                Serial.print(F("\t RX power: ")); Serial.print(DW1000.getReceivePower()); Serial.print(F(" dBm"));
+                Serial.print(F("\t Sampling: ")); Serial.print(samplingRate); Serial.println(F(" Hz"));
+                //Serial.print(F("FP power is [dBm]: ")); Serial.print(DW1000.getFirstPathPower());
+                //Serial.print(F("RX power is [dBm]: ")); Serial.println(DW1000.getReceivePower());
+                //Serial.print(F("Receive quality: ")); Serial.println(DW1000.getReceiveQuality());
                 // update sampling rate (each second)
                 successRangingCount++;
                 if (curMillis - rangingCountPeriod > 1000) {
@@ -263,9 +265,6 @@ void loop() {
                     rangingCountPeriod = curMillis;
                     successRangingCount = 0;
                 }
-            }
-            else {
-                transmitRangeFailed();
             }
 
             noteActivity();
