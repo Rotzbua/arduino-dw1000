@@ -19,7 +19,7 @@ Installation
 **Requires c++11 support**, Arduino IDE >= 1.6.6 support c++11.
 
  1. Get a ZIP file of the master branch or the latest release and save somewhere on your machine.
- 2. Open your Arduino IDE and goto _Sketch_ / _Include Library_ / _Add .ZIP Library..._
+ 2. Open your Arduino IDE and go to _Sketch_ / _Include Library_ / _Add .ZIP Library..._
  3. Select the downloaded ZIP file of the DW1000 library
  4. You should now see the library in the list and have access to the examples in the dedicated section of the IDE
 
@@ -47,9 +47,9 @@ At the moment the library contains two types:
  
  * **DW1000Time:** Container entities that handle DW1000 specific timing values. These are required to allow accurate timestamps and time based computations; they aid in avoiding potential precision and capacity problems of standard number formats in Arduino and basically are wrapper objects for 64-bit signed integer data types; most importantly they take care of all bit-to-time-and-distance (and vice versa) conversions.
  
- * **DW1000Ranging:** Contain all functions which allow to make the ranging protocole. 
+ * **DW1000Ranging:** Contain all functions which allow to make the ranging protocol.
  
- * **DW1000Device:** Contain all informations (long address, short ephemeral address, DW1000Time of transition)  about a distant device (anchor or tag) on the same network.
+ * **DW1000Device:** Contain all information (long address, short ephemeral address, DW1000Time of transition)  about a distant device (anchor or tag) on the same network.
  
  * **DW1000Mac:** This class is a child of the DW1000Device class and allow to generate the MAC frame for his DW1000Device parent.
  
@@ -98,4 +98,6 @@ DW1000.startReceive();
 ...
 ```
 
-
+License
+-------------
+see [LICENSE.md](./LICENSE.md)
