@@ -57,7 +57,7 @@ void DW1000Mac::generateBlinkFrame(byte frame[], byte sourceAddress[], byte sour
 }
 
 //the short fram usually for Resp, Final, or Report
-//2 bytes for Desination Address and 2 bytes for Source Address
+//2 bytes for Destination Address and 2 bytes for Source Address
 //total=9 bytes
 void DW1000Mac::generateShortMACFrame(byte frame[], byte sourceShortAddress[], byte destinationShortAddress[]) {
 	//Frame controle
@@ -89,7 +89,7 @@ void DW1000Mac::generateShortMACFrame(byte frame[], byte sourceShortAddress[], b
 //8 bytes for Destination Address and 2 bytes for Source Address
 //total=15
 void DW1000Mac::generateLongMACFrame(byte frame[], byte sourceShortAddress[], byte destinationAddress[]) {
-	//Frame controle
+	//Frame control
 	*frame     = FC_1;
 	*(frame+1) = FC_2;
 	//sequence number

@@ -509,8 +509,8 @@ public:
 	static boolean getBit(byte data[], uint16_t n, uint16_t bit);
 	static void    setBit(byte data[], uint16_t n, uint16_t bit, boolean val);
 	
-	/* Register is 6 bit, 7 = write, 6 = sub-adressing, 5-0 = register value
-	 * Total header with sub-adressing can be 15 bit. */
+	/* Register is 6 bit, 7 = write, 6 = sub-addressing, 5-0 = register value
+	 * Total header with sub-addressing can be 15 bit. */
 	static const byte WRITE      = 0x80; // regular write
 	static const byte WRITE_SUB  = 0xC0; // write with sub address
 	static const byte READ       = 0x00; // regular read

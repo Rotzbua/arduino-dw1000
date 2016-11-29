@@ -19,7 +19,7 @@
  * for the Decawave DW1000 UWB transceiver IC.
  *
  * @TODO
- * - remove or debugmode for Serial.print
+ * - remove or debug mode for Serial.print
  * - move strings to flash to reduce ram usage
  * - do not safe duplicate of pin settings
  * - maybe other object structure
@@ -183,7 +183,7 @@ private:
 	static void checkForInactiveDevices();
 	static void copyShortAddress(byte address1[], byte address2[]);
 	
-	//for ranging protocole (ANCHOR)
+	//for ranging protocol (ANCHOR)
 	static void transmitInit();
 	static void transmit(byte datas[]);
 	static void transmit(byte datas[], DW1000Time time);

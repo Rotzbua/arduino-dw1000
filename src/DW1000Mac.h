@@ -61,8 +61,8 @@ public:
 	//total=12 bytes
 	void generateBlinkFrame(byte frame[], byte sourceAddress[], byte sourceShortAddress[]);
 	
-	//the short fram usually for Resp, Final, or Report
-	//2 bytes for Desination Address and 2 bytes for Source Address
+	//the short form usually for Resp, Final, or Report
+	//2 bytes for Destination Address and 2 bytes for Source Address
 	//total=9 bytes
 	void generateShortMACFrame(byte frame[], byte sourceShortAddress[], byte destinationShortAddress[]);
 	

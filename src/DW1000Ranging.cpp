@@ -274,7 +274,7 @@ void DW1000RangingClass::removeNetworkDevices(int16_t index) {
 		_networkDevicesNumber--;
 	}
 	else {
-		//we translate all the element wich are after the one we want to delete.
+		//we translate all the element which are after the one we want to delete.
 		for(int16_t i = index; i < _networkDevicesNumber-1; i++) { // TODO 8bit?
 			memcpy(&_networkDevices[i], &_networkDevices[i+1], sizeof(DW1000Device));
 			_networkDevices[i].setIndex(i);
@@ -374,7 +374,7 @@ void DW1000RangingClass::loop() {
 		if(messageType != POLL_ACK && messageType != POLL && messageType != RANGE)
 			return;
 		
-		//A msg was sent. We launch the ranging protocole when a message was sent
+		//A msg was sent. We launch the ranging protocol when a message was sent
 		if(_type == ANCHOR) {
 			if(messageType == POLL_ACK) {
 				DW1000Device* myDistantDevice = searchDistantDevice(_lastSentToShortAddress);
@@ -489,7 +489,7 @@ void DW1000RangingClass::loop() {
 			}
 			
 			
-			//then we proceed to range protocole
+			//then we proceed to range protocol
 			if(_type == ANCHOR) {
 				if(messageType != _expectedMsgId) {
 					// unexpected message, start over again (except if already POLL)
@@ -618,7 +618,7 @@ void DW1000RangingClass::loop() {
 					//in the case the message come from our last device:
 					if(myDistantDevice->getIndex() == _networkDevicesNumber-1) {
 						_expectedMsgId = RANGE_REPORT;
-						//and transmit the next message (range) of the ranging protocole (in broadcast)
+						//and transmit the next message (range) of the ranging protocol (in broadcast)
 						transmitRange(NULL);
 					}
 				}
@@ -730,7 +730,7 @@ void DW1000RangingClass::copyShortAddress(byte address1[], byte address2[]) {
 }
 
 /* ###########################################################################
- * #### Methods for ranging protocole   ######################################
+ * #### Methods for ranging protocol    ######################################
  * ######################################################################### */
 
 void DW1000RangingClass::transmitInit() {

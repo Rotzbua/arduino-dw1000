@@ -177,8 +177,8 @@ float DW1000Time::getAsMeters() const {
 /**
  * Converts negative values due overflow of one node to correct value
  * @example:
- * Maximum timesamp is 1000.
- * Node N1 sends 999 as timesamp. N2 recieves and sends delayed and increased timestamp back.
+ * Maximum timestamp is 1000.
+ * Node N1 sends 999 as timestamp. N2 receives and sends delayed and increased timestamp back.
  * Delay is 10, so timestamp would be 1009, but due overflow 009 is sent back.
  * Now calculate TOF: 009 - 999 = -990 -> not correct time, so wrap()
  * Wrap calculation: -990 + 1000 = 10 -> correct time 
@@ -281,7 +281,7 @@ boolean DW1000Time::operator!=(const DW1000Time& cmp) const {
 
 #ifdef DW1000TIME_H_PRINTABLE
 /**
- * For debuging, print timestamp pretty as integer with arduinos serial
+ * For debugging, print timestamp pretty as integer with arduinos serial
  * @deprecated use Serial.print(object)
  */
 void DW1000Time::print() {
