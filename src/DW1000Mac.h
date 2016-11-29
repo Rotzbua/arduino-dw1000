@@ -51,6 +51,7 @@ public:
 	
 	
 	//setters
+	// TODO implement
 	void setDestinationAddress(byte* destinationAddress);
 	void setDestinationAddressShort(byte* shortDestinationAddress);
 	void setSourceAddress(byte* sourceAddress);

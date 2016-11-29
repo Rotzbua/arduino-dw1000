@@ -1182,7 +1182,7 @@ void DW1000Class::setData(byte data[], uint16_t n) {
 void DW1000Class::setData(const String& data) {
 	uint16_t n = data.length()+1;
 	byte* dataBytes = (byte*)malloc(n);
-	data.getBytes(dataBytes, n);
+	data.getBytes(dataBytes, n); // TODO type error
 	setData(dataBytes, n);
 	free(dataBytes);
 }

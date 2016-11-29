@@ -354,6 +354,8 @@ int16_t DW1000RangingClass::detectMessageType(byte datas[]) {
 		//we have a short mac frame message (poll, range, range report, etc..)
 		return datas[SHORT_MAC_LEN];
 	}
+	
+	// TODO default return
 }
 
 void DW1000RangingClass::loop() {
@@ -747,7 +749,7 @@ void DW1000RangingClass::transmit(byte datas[]) {
 
 void DW1000RangingClass::transmit(byte datas[], DW1000Time time) {
 	DW1000.setDelay(time);
-	DW1000.setData(data, LEN_DATA);
+	DW1000.setData(data, LEN_DATA); // TODO typo? data or datas[] ??
 	DW1000.startTransmit();
 }
 
