@@ -110,14 +110,14 @@ public:
 	DW1000Time& operator-=(const DW1000Time& sub);
 	DW1000Time operator-(const DW1000Time& sub) const;
 	// multiply
-	// multiply with float cause lost in accuracy, because float calculates only with 23bit matise
+	// multiply with float cause lost in accuracy, because float calculates only with 23bit mantissa
 	DW1000Time& operator*=(float factor);
 	DW1000Time operator*(float factor) const;
 	// no accuracy lost
 	DW1000Time& operator*=(const DW1000Time& factor);
 	DW1000Time operator*(const DW1000Time& factor) const;
 	// divide
-	// divide with float cause lost in accuracy, because float calculates only with 23bit matise
+	// divide with float cause lost in accuracy, because float calculates only with 23bit mantissa
 	DW1000Time& operator/=(float factor);
 	DW1000Time operator/(float factor) const;
 	// no accuracy lost
